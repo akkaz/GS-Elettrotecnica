@@ -81,7 +81,7 @@ export default function Footer({ setCurrentPage }) {
                 {/* Bottom Bar */}
                 <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
                     <div className="mb-4 md:mb-0">
-                        © {new Date().getFullYear()} GS Elettrotecnica Automazioni Industriali Srl. P.IVA: IT00000000000
+                        © {new Date().getFullYear()} GS Elettrotecnica Automazioni Industriali Srl. Tutti i diritti riservati.
                     </div>
                     <div className="flex gap-6">
                         <button className="hover:text-brand transition-colors">Privacy Policy</button>

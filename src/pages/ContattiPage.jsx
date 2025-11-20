@@ -17,6 +17,23 @@ export default function ContattiPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        // Create email body
+        const subject = `Richiesta informazioni da ${formData.nome} ${formData.cognome}`;
+        const body = `
+Nome: ${formData.nome}
+Cognome: ${formData.cognome}
+Email: ${formData.email}
+Telefono: ${formData.telefono}
+Azienda: ${formData.azienda}
+
+Messaggio:
+${formData.messaggio}
+        `.trim();
+        
+        // Open default email client
+        window.location.href = `mailto:info@elettrotecnicags.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 5000);
     };
