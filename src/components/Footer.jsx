@@ -18,7 +18,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <div className="flex items-center space-x-3">
                             <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-brand/20 p-1">
-                                <img src="/logo.png" alt="GS Elettrotecnica" className="w-full h-full object-contain" />
+                                <img src="/logo.webp" alt="GS Elettrotecnica" className="w-full h-full object-contain" />
                             </div>
                             <div>
                                 <div className="font-bold text-lg leading-none">GS Elettrotecnica</div>

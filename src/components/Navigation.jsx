@@ -42,7 +42,7 @@ export default function Navigation() {
                         className="flex items-center space-x-3 focus:outline-none"
                     >
                         <img
-                            src="/logo.png"
+                            src="/logo.webp"
                             alt="GS Elettrotecnica Logo"
                             className="h-10 md:h-12 w-auto object-contain"
                         />

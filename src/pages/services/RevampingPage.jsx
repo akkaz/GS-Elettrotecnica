@@ -2,7 +2,7 @@ import React from 'react';
 import { Wrench, CheckCircle, ArrowRight, RefreshCw, Shield, TrendingUp, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Head } from '@unhead/react';
 
 export default function RevampingPage() {
     const features = [
@@ -30,16 +30,16 @@ export default function RevampingPage() {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
-            <Helmet>
+            <Head>
                 <title>Revamping Macchinari - GS Elettrotecnica | Ammodernamento Impianti</title>
                 <meta name="description" content="Revamping e ammodernamento di macchinari industriali. Adeguamento normativo CE, ottimizzazione performance, efficienza energetica. Nuova vita ai tuoi impianti." />
                 <link rel="canonical" href="https://www.elettrotecnicags.it/servizi/revamping" />
-            </Helmet>
+            </Head>
             {/* Header */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/machinery-maintenance.png"
+                        src="/machinery-maintenance.webp"
                         alt="Revamping Macchinari"
                         className="w-full h-full object-cover"
                     />
@@ -127,7 +127,7 @@ export default function RevampingPage() {
 
             {/* CTA */}
             <section className="py-24 bg-slate-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/machinery-maintenance.png')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-[url('/machinery-maintenance.webp')] bg-cover bg-center opacity-10 mix-blend-overlay" />
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Valuta il revamping dei tuoi impianti</h2>
                     <p className="text-xl text-slate-300 mb-10">

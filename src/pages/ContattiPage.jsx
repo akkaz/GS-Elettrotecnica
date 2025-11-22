@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import { Head } from '@unhead/react';
 
 export default function ContattiPage() {
     const [formData, setFormData] = useState({
@@ -111,16 +111,16 @@ export default function ContattiPage() {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
-            <Helmet>
+            <Head>
                 <title>Contatti - GS Elettrotecnica | Richiedi un Preventivo</title>
                 <meta name="description" content="Contatta GS Elettrotecnica per informazioni o preventivi. Telefono: +39 0364 341038. Sede: Cividate Camuno (BS). Siamo a tua disposizione." />
                 <link rel="canonical" href="https://www.elettrotecnicags.it/contatti" />
-            </Helmet>
+            </Head>
             {/* Modern Header Section */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/solar-panels.png"
+                        src="/solar-panels.webp"
                         alt="Contact Us"
                         className="w-full h-full object-cover"
                     />

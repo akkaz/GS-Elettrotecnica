@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, Shield, Target, ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Head } from '@unhead/react';
 import { Timeline } from '../components/ui/Timeline';
 
 export default function ChiSiamoPage() {
@@ -96,17 +96,17 @@ export default function ChiSiamoPage() {
 
     return (
         <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
-            <Helmet>
+            <Head>
                 <title>Chi Siamo - GS Elettrotecnica | La Nostra Storia e I Nostri Valori</title>
                 <meta name="description" content="Scopri la storia di GS Elettrotecnica, da oltre 30 anni leader nell'automazione industriale in Valle Camonica. Il nostro team, i nostri valori e la nostra missione." />
                 <link rel="canonical" href="https://www.elettrotecnicags.it/chi-siamo" />
-            </Helmet>
+            </Head>
 
             {/* Hero Section */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/industrial-factory.png"
+                        src="/industrial-factory.webp"
                         alt="Chi Siamo"
                         className="w-full h-full object-cover"
                     />
@@ -197,7 +197,7 @@ export default function ChiSiamoPage() {
 
             {/* CTA Section */}
             <section className="py-24 bg-brand-700 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/industrial-factory.png')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-[url('/industrial-factory.webp')] bg-cover bg-center opacity-10 mix-blend-overlay" />
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                         Pronti a innovare insieme?

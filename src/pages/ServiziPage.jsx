@@ -2,7 +2,7 @@ import React from 'react';
 import { Zap, Settings, Sun, Wrench, Shield, CheckCircle, ArrowRight, Factory } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Head } from '@unhead/react';
 
 export default function ServiziPage() {
     const services = [
@@ -84,17 +84,17 @@ export default function ServiziPage() {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
-            <Helmet>
+            <Head>
                 <title>Servizi - GS Elettrotecnica | Impianti, Automazione, Quadri Elettrici</title>
                 <meta name="description" content="Scopri i nostri servizi: impiantistica elettrica, automazione industriale, quadri elettrici, energie rinnovabili e revamping macchinari. Soluzioni su misura per la tua azienda." />
                 <link rel="canonical" href="https://www.elettrotecnicags.it/servizi" />
-            </Helmet>
+            </Head>
 
             {/* Modern Header Section */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/machinery-maintenance.png"
+                        src="/machinery-maintenance.webp"
                         alt="Industrial Services"
                         className="w-full h-full object-cover"
                     />
@@ -188,7 +188,7 @@ export default function ServiziPage() {
 
             {/* Process Section */}
             <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/industrial-factory.png')] bg-cover bg-center opacity-5 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-[url('/industrial-factory.webp')] bg-cover bg-center opacity-5 mix-blend-overlay" />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <h2 className="text-3xl font-bold mb-16 text-center">Il nostro approccio</h2>
                     <div className="grid md:grid-cols-4 gap-12">

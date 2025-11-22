@@ -2,7 +2,7 @@ import React from 'react';
 import { Factory, Settings, Sun, Wrench, ArrowRight, CheckCircle, ChevronDown, Shield, Award, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Head } from '@unhead/react';
 import AnimatedNumber from '../components/ui/AnimatedNumber';
 import { InfiniteMovingCards } from '../components/ui/InfiniteMovingCards';
 
@@ -12,25 +12,25 @@ export default function HomePage() {
             icon: <Factory className="w-10 h-10 text-brand-600" />,
             title: 'Impiantistica Industriale',
             description: 'Progettazione e realizzazione impianti elettrici civili e industriali, con manutenzione programmata e interventi rapidi.',
-            image: '/industrial-factory.png',
+            image: '/industrial-factory.webp',
         },
         {
             icon: <Settings className="w-10 h-10 text-brand-600" />,
             title: 'Automazione Industriale',
             description: 'Sistemi PLC e CNC, programmazione e integrazione sistemi di processo, quadri elettrici di ogni dimensione.',
-            image: '/automation-plc.png',
+            image: '/automation-plc.webp',
         },
         {
             icon: <Sun className="w-10 h-10 text-brand-600" />,
             title: 'Energie Rinnovabili',
             description: 'Soluzioni fotovoltaiche, efficientamento energetico e partnership con Novatech Automation.',
-            image: '/solar-panels.png',
+            image: '/solar-panels.webp',
         },
         {
             icon: <Wrench className="w-10 h-10 text-brand-600" />,
             title: 'Revamping Macchinari',
             description: 'Ammodernamento e restyling, adeguamento normativo e ottimizzazione delle performance.',
-            image: '/machinery-maintenance.png',
+            image: '/machinery-maintenance.webp',
         }
     ];
 
@@ -73,19 +73,19 @@ export default function HomePage() {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
-            <Helmet>
+            <Head>
                 <title>GS Elettrotecnica - Automazione Industriale | Impiantistica Elettrica Valle Camonica</title>
                 <meta name="description" content="GS Elettrotecnica - Oltre 30 anni di eccellenza nell'impiantistica elettrica e automazione industriale. Progettazione, realizzazione e manutenzione impianti elettrici, sistemi PLC, quadri elettrici e energie rinnovabili." />
                 <meta name="keywords" content="impiantistica elettrica, automazione industriale, PLC, quadri elettrici, energie rinnovabili, Valle Camonica, Brescia" />
                 <link rel="canonical" href="https://www.elettrotecnicags.it/" />
-            </Helmet>
+            </Head>
 
             {/* Modern Industrial Hero Section */}
             <section className="relative h-auto md:h-screen min-h-[600px] flex flex-col justify-center md:items-center overflow-hidden pt-20 md:pt-0 pb-12 md:pb-0">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/industrial-factory.png"
+                        src="/industrial-factory.webp"
                         alt="Industrial Factory Interior"
                         className="w-full h-full object-cover"
                     />
@@ -274,7 +274,7 @@ export default function HomePage() {
 
             {/* CTA Section */}
             <section className="py-24 bg-brand-700 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/industrial-factory.png')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-[url('/industrial-factory.webp')] bg-cover bg-center opacity-10 mix-blend-overlay" />
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Hai un progetto in mente?</h2>
                     <p className="text-xl text-brand-100 mb-10 max-w-2xl mx-auto">
