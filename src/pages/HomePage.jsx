@@ -72,7 +72,7 @@ export default function HomePage({ setCurrentPage }) {
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
             {/* Modern Industrial Hero Section */}
-            <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+            <section className="relative h-auto md:h-screen min-h-[600px] flex flex-col justify-center md:items-center overflow-hidden pt-20 md:pt-0 pb-12 md:pb-0">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -83,18 +83,18 @@ export default function HomePage({ setCurrentPage }) {
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/30" />
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-12 md:pt-20">
                     <div className="max-w-3xl">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-300 text-sm font-medium mb-6 backdrop-blur-sm">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-300 text-sm font-medium mb-4 backdrop-blur-sm">
                                 <Award className="w-4 h-4" />
                                 <span>Leader nell'automazione dal 1995</span>
                             </div>
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
                                 Eccellenza nell'
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-teal-200">
                                     Automazione Industriale
@@ -139,7 +139,7 @@ export default function HomePage({ setCurrentPage }) {
 
                 {/* Scroll Indicator */}
                 <motion.div
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50"
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 hidden md:block"
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                 >
