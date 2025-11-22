@@ -16,6 +16,22 @@ Sito web moderno per GS Elettrotecnica Automazioni Industriali Srl, azienda lead
 npm install
 ```
 
+## 🔐 Configurazione Ambiente
+
+1. Copia il file `.env.example` in `.env`:
+```bash
+cp .env.example .env
+```
+
+2. Configura le variabili d'ambiente:
+```bash
+# Email Configuration (Resend)
+RESEND_API_KEY=your_resend_api_key_here
+RESEND_TO_EMAIL=info@elettrotecnicags.it
+```
+
+3. Per la produzione, configura le stesse variabili nel tuo hosting provider (Vercel, Netlify, etc.)
+
 ## 🛠️ Sviluppo
 
 ```bash
