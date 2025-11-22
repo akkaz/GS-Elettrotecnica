@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Head } from '@unhead/react';
+import { validateForm, sanitizeInput } from '../utils/validation';
 
 export default function ContattiPage() {
     const [formData, setFormData] = useState({
@@ -20,25 +21,38 @@ export default function ContattiPage() {
         error: null
     });
 
+    const [errors, setErrors] = useState({});
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Validate form
+        const validationErrors = validateForm(formData);
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        setErrors({});
         setStatus({ submitting: true, submitted: false, error: null });
 
         try {
+            // Sanitize inputs
+            const sanitizedData = {
+                nome: sanitizeInput(formData.nome),
+                cognome: sanitizeInput(formData.cognome),
+                email: sanitizeInput(formData.email),
+                telefono: sanitizeInput(formData.telefono),
+                azienda: sanitizeInput(formData.azienda),
+                messaggio: sanitizeInput(formData.messaggio)
+            };
             // Use relative API route - works in both dev and production
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    nome: formData.nome,
-                    cognome: formData.cognome,
-                    email: formData.email,
-                    telefono: formData.telefono,
-                    azienda: formData.azienda,
-                    messaggio: formData.messaggio
-                }),
+                body: JSON.stringify(sanitizedData),
             });
 
             const data = await response.json();
@@ -74,6 +88,14 @@ export default function ContattiPage() {
             ...prev,
             [name]: type === 'checkbox' ? checked : value
         }));
+        
+        // Clear error for this field when user starts typing
+        if (errors[name]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: null
+            }));
+        }
     };
 
     const contacts = [
@@ -191,12 +213,18 @@ export default function ContattiPage() {
                                             value={formData.nome}
                                             onChange={handleChange}
                                             required
-                                            className="peer w-full px-4 py-4 pt-6 rounded-xl border-2 border-slate-200 dark:border-slate-700 focus:border-brand-600 dark:focus:border-brand-400 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white transition-all outline-none"
+                                            className={`peer w-full px-4 py-4 pt-6 rounded-xl border-2 ${errors.nome ? 'border-red-500' : 'border-slate-200 dark:border-slate-700'} focus:border-brand-600 dark:focus:border-brand-400 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white transition-all outline-none`}
                                             placeholder=" "
                                         />
                                         <label className="absolute left-4 top-4 text-slate-500 dark:text-slate-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-xs peer-focus:text-brand-600 dark:peer-focus:text-brand-400 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs pointer-events-none">
                                             Nome *
                                         </label>
+                                        {errors.nome && (
+                                            <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                                                <AlertCircle className="w-3 h-3" />
+                                                {errors.nome}
+                                            </p>
+                                        )}
                                     </motion.div>
 
                                     {/* Cognome Field */}

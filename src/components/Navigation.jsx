@@ -21,6 +21,7 @@ export default function Navigation() {
         { path: '/', label: 'Home' },
         { path: '/chi-siamo', label: 'Chi Siamo' },
         { path: '/servizi', label: 'Servizi' },
+        { path: '/faq', label: 'FAQ' },
         { path: '/contatti', label: 'Contatti' }
     ];
 

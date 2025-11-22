@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { Head } from '@unhead/react';
 import AnimatedNumber from '../components/ui/AnimatedNumber';
 import { InfiniteMovingCards } from '../components/ui/InfiniteMovingCards';
+import OptimizedImage from '../components/ui/OptimizedImage';
+import { organizationSchema, localBusinessSchema } from '../utils/structuredData';
 
 export default function HomePage() {
     const services = [
@@ -78,16 +80,23 @@ export default function HomePage() {
                 <meta name="description" content="GS Elettrotecnica - Oltre 30 anni di eccellenza nell'impiantistica elettrica e automazione industriale. Progettazione, realizzazione e manutenzione impianti elettrici, sistemi PLC, quadri elettrici e energie rinnovabili." />
                 <meta name="keywords" content="impiantistica elettrica, automazione industriale, PLC, quadri elettrici, energie rinnovabili, Valle Camonica, Brescia" />
                 <link rel="canonical" href="https://www.elettrotecnicags.it/" />
+                <script type="application/ld+json">
+                    {JSON.stringify(organizationSchema)}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(localBusinessSchema)}
+                </script>
             </Head>
 
             {/* Modern Industrial Hero Section */}
             <section className="relative h-auto md:h-screen min-h-[600px] flex flex-col justify-center md:items-center overflow-hidden pt-20 md:pt-0 pb-12 md:pb-0">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
-                    <img
+                    <OptimizedImage
                         src="/industrial-factory.webp"
                         alt="Industrial Factory Interior"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full"
+                        priority={true}
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/30" />
                 </div>
