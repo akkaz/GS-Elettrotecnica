@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import ChiSiamoPage from './pages/ChiSiamoPage';
 import ServiziPage from './pages/ServiziPage';
@@ -11,46 +13,43 @@ import QuadriElettriciPage from './pages/services/QuadriElettriciPage';
 import EnergieRinnovabiliPage from './pages/services/EnergieRinnovabiliPage';
 import RevampingPage from './pages/services/RevampingPage';
 import ServiziAggiuntiviPage from './pages/services/ServiziAggiuntiviPage';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
-function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentPage]);
-
-  const pages = {
-    home: <HomePage setCurrentPage={setCurrentPage} />,
-    'chi-siamo': <ChiSiamoPage setCurrentPage={setCurrentPage} />,
-    servizi: <ServiziPage setCurrentPage={setCurrentPage} />,
-    contatti: <ContattiPage />,
-    'impianti-elettrici': <ImpiantiElettriciPage setCurrentPage={setCurrentPage} />,
-    'automazione-industriale': <AutomazionePage setCurrentPage={setCurrentPage} />,
-    'quadri-elettrici': <QuadriElettriciPage setCurrentPage={setCurrentPage} />,
-    'energie-rinnovabili': <EnergieRinnovabiliPage setCurrentPage={setCurrentPage} />,
-    'revamping': <RevampingPage setCurrentPage={setCurrentPage} />,
-    'servizi-aggiuntivi': <ServiziAggiuntiviPage setCurrentPage={setCurrentPage} />
-  };
+function AnimatedRoutes() {
+  const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-brand selection:text-white">
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <main>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentPage}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-          >
-            {pages[currentPage]}
-          </motion.div>
-        </AnimatePresence>
-      </main>
-      <Footer setCurrentPage={setCurrentPage} />
-    </div>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/chi-siamo" element={<ChiSiamoPage />} />
+        <Route path="/servizi" element={<ServiziPage />} />
+        <Route path="/contatti" element={<ContattiPage />} />
+
+        {/* Service Routes */}
+        <Route path="/servizi/impianti-elettrici" element={<ImpiantiElettriciPage />} />
+        <Route path="/servizi/automazione-industriale" element={<AutomazionePage />} />
+        <Route path="/servizi/quadri-elettrici" element={<QuadriElettriciPage />} />
+        <Route path="/servizi/energie-rinnovabili" element={<EnergieRinnovabiliPage />} />
+        <Route path="/servizi/revamping" element={<RevampingPage />} />
+        <Route path="/servizi/servizi-aggiuntivi" element={<ServiziAggiuntiviPage />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-brand selection:text-white">
+        <ScrollToTop />
+        <Navigation />
+        <main>
+          <AnimatedRoutes />
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

@@ -1,23 +1,25 @@
 import React from 'react';
-import { Factory, CheckCircle, ArrowRight, Box, ShieldCheck, PenTool, ClipboardCheck } from 'lucide-react';
+import { Factory, CheckCircle, ArrowRight, Cpu, Shield, FileText, Wrench } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-export default function QuadriElettriciPage({ setCurrentPage }) {
+export default function QuadriElettriciPage() {
     const features = [
         {
             title: 'Progettazione Elettrica',
             description: 'Utilizzo dei più avanzati software CAD (Eplan, Spac) per la progettazione schemi elettrici e layout quadri.',
-            icon: <PenTool className="w-6 h-6 text-brand-600 dark:text-brand-400" />
+            icon: <Wrench className="w-6 h-6 text-brand-600 dark:text-brand-400" />
         },
         {
             title: 'Cablaggio e Assemblaggio',
             description: 'Realizzazione interna nella nostra officina di 1500mq, con personale altamente specializzato e componenti di qualità.',
-            icon: <Box className="w-6 h-6 text-brand-600 dark:text-brand-400" />
+            icon: <Cpu className="w-6 h-6 text-brand-600 dark:text-brand-400" />
         },
         {
             title: 'Collaudo Certificato',
             description: 'Test funzionali e strumentali rigorosi su ogni quadro prodotto, con rilascio delle relative certificazioni di conformità.',
-            icon: <ClipboardCheck className="w-6 h-6 text-brand-600 dark:text-brand-400" />
+            icon: <FileText className="w-6 h-6 text-brand-600 dark:text-brand-400" />
         },
         {
             title: 'Quadri di Ogni Tipo',
@@ -28,6 +30,11 @@ export default function QuadriElettriciPage({ setCurrentPage }) {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
+            <Helmet>
+                <title>Quadri Elettrici - GS Elettrotecnica | Progettazione e Costruzione</title>
+                <meta name="description" content="Progettazione e costruzione quadri elettrici su misura. Quadri di comando, distribuzione, automazione. Testing completo e documentazione As-Built." />
+                <link rel="canonical" href="https://www.elettrotecnicags.it/servizi/quadri-elettrici" />
+            </Helmet>
             {/* Header */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -45,7 +52,7 @@ export default function QuadriElettriciPage({ setCurrentPage }) {
                         transition={{ duration: 0.6 }}
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-300 text-sm font-medium mb-6 backdrop-blur-sm">
-                            <Box className="w-4 h-4" />
+                            <Shield className="w-4 h-4" />
                             <span>Produzione Interna</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
@@ -126,13 +133,13 @@ export default function QuadriElettriciPage({ setCurrentPage }) {
                     <p className="text-xl text-slate-300 mb-10">
                         Richiedi un preventivo per la realizzazione dei tuoi quadri elettrici.
                     </p>
-                    <button
-                        onClick={() => setCurrentPage('contatti')}
+                    <Link
+                        to="/contatti"
                         className="px-10 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/25 flex items-center justify-center gap-2 mx-auto group"
                     >
-                        Richiedi Preventivo
+                        Richiedi Progetto
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                 </div>
             </section>
         </div>

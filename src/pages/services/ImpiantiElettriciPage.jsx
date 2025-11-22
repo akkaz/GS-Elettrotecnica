@@ -1,8 +1,10 @@
 import React from 'react';
 import { Zap, CheckCircle, ArrowRight, Building, Home, Lightbulb } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-export default function ImpiantiElettriciPage({ setCurrentPage }) {
+export default function ImpiantiElettriciPage() {
     const features = [
         {
             title: 'Impianti Civili',
@@ -28,6 +30,11 @@ export default function ImpiantiElettriciPage({ setCurrentPage }) {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
+            <Helmet>
+                <title>Impiantistica Elettrica - GS Elettrotecnica | Civile e Industriale</title>
+                <meta name="description" content="Progettazione, installazione e manutenzione di impianti elettrici civili e industriali. Cabine BT/MT, illuminotecnica, domotica. Certificazione DM 37/08." />
+                <link rel="canonical" href="https://www.elettrotecnicags.it/servizi/impianti-elettrici" />
+            </Helmet>
             {/* Header */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -126,13 +133,13 @@ export default function ImpiantiElettriciPage({ setCurrentPage }) {
                     <p className="text-xl text-slate-300 mb-10">
                         Contattaci per un sopralluogo gratuito. Valuteremo insieme la soluzione migliore per le tue esigenze.
                     </p>
-                    <button
-                        onClick={() => setCurrentPage('contatti')}
+                    <Link
+                        to="/contatti"
                         className="px-10 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/25 flex items-center justify-center gap-2 mx-auto group"
                     >
                         Richiedi Preventivo
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                 </div>
             </section>
         </div>

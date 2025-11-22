@@ -1,7 +1,15 @@
 import React from 'react';
 import { Zap, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-export default function Footer({ setCurrentPage }) {
+export default function Footer() {
+    const navItems = [
+        { path: '/', label: 'Home' },
+        { path: '/chi-siamo', label: 'Chi Siamo' },
+        { path: '/servizi', label: 'Servizi' },
+        { path: '/contatti', label: 'Contatti' }
+    ];
+
     return (
         <footer className="bg-bg-dark text-white pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,15 +35,15 @@ export default function Footer({ setCurrentPage }) {
                     <div>
                         <h3 className="font-bold text-lg mb-6 text-white">Navigazione</h3>
                         <ul className="space-y-3">
-                            {['home', 'chi-siamo', 'servizi', 'contatti'].map(page => (
-                                <li key={page}>
-                                    <button
-                                        onClick={() => setCurrentPage(page)}
+                            {navItems.map(item => (
+                                <li key={item.path}>
+                                    <Link
+                                        to={item.path}
                                         className="text-slate-400 hover:text-brand transition-colors capitalize flex items-center group"
                                     >
                                         <span className="w-1.5 h-1.5 bg-brand rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        {page.replace('-', ' ')}
-                                    </button>
+                                        {item.label}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

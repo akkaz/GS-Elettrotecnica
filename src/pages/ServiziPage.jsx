@@ -1,8 +1,10 @@
 import React from 'react';
 import { Zap, Settings, Sun, Wrench, Shield, CheckCircle, ArrowRight, Factory } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-export default function ServiziPage({ setCurrentPage }) {
+export default function ServiziPage() {
     const services = [
         {
             id: 'impianti-elettrici',
@@ -82,6 +84,12 @@ export default function ServiziPage({ setCurrentPage }) {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
+            <Helmet>
+                <title>Servizi - GS Elettrotecnica | Impianti, Automazione, Quadri Elettrici</title>
+                <meta name="description" content="Scopri i nostri servizi: impiantistica elettrica, automazione industriale, quadri elettrici, energie rinnovabili e revamping macchinari. Soluzioni su misura per la tua azienda." />
+                <link rel="canonical" href="https://www.elettrotecnicags.it/servizi" />
+            </Helmet>
+
             {/* Modern Header Section */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -144,13 +152,13 @@ export default function ServiziPage({ setCurrentPage }) {
                                     </ul>
 
                                     {/* CTA */}
-                                    <button
-                                        onClick={() => setCurrentPage(service.id)}
+                                    <Link
+                                        to={`/servizi/${service.id}`}
                                         className="text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all"
                                     >
                                         Scopri di più
                                         <ArrowRight className="w-5 h-5" />
-                                    </button>
+                                    </Link>
                                 </div>
 
                                 {/* Decorative gradient */}
@@ -217,13 +225,13 @@ export default function ServiziPage({ setCurrentPage }) {
                     <p className="text-xl text-slate-600 dark:text-slate-400 mb-10">
                         Contattaci per una consulenza personalizzata e un preventivo gratuito
                     </p>
-                    <button
-                        onClick={() => setCurrentPage('contatti')}
+                    <Link
+                        to="/contatti"
                         className="px-10 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/25 flex items-center justify-center gap-2 mx-auto group"
                     >
                         Richiedi preventivo
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                 </div>
             </section>
         </div>

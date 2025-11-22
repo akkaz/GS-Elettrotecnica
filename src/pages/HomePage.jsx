@@ -1,10 +1,12 @@
 import React from 'react';
 import { Factory, Settings, Sun, Wrench, ArrowRight, CheckCircle, ChevronDown, Shield, Award, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import AnimatedNumber from '../components/ui/AnimatedNumber';
 import { InfiniteMovingCards } from '../components/ui/InfiniteMovingCards';
 
-export default function HomePage({ setCurrentPage }) {
+export default function HomePage() {
     const services = [
         {
             icon: <Factory className="w-10 h-10 text-brand-600" />,
@@ -71,6 +73,13 @@ export default function HomePage({ setCurrentPage }) {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
+            <Helmet>
+                <title>GS Elettrotecnica - Automazione Industriale | Impiantistica Elettrica Valle Camonica</title>
+                <meta name="description" content="GS Elettrotecnica - Oltre 30 anni di eccellenza nell'impiantistica elettrica e automazione industriale. Progettazione, realizzazione e manutenzione impianti elettrici, sistemi PLC, quadri elettrici e energie rinnovabili." />
+                <meta name="keywords" content="impiantistica elettrica, automazione industriale, PLC, quadri elettrici, energie rinnovabili, Valle Camonica, Brescia" />
+                <link rel="canonical" href="https://www.elettrotecnicags.it/" />
+            </Helmet>
+
             {/* Modern Industrial Hero Section */}
             <section className="relative h-auto md:h-screen min-h-[600px] flex flex-col justify-center md:items-center overflow-hidden pt-20 md:pt-0 pb-12 md:pb-0">
                 {/* Background Image with Overlay */}
@@ -105,19 +114,19 @@ export default function HomePage({ setCurrentPage }) {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                                <button
-                                    onClick={() => setCurrentPage('contatti')}
+                                <Link
+                                    to="/contatti"
                                     className="px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/25 flex items-center justify-center gap-2 group"
                                 >
                                     Richiedi Preventivo
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </button>
-                                <button
-                                    onClick={() => setCurrentPage('servizi')}
+                                </Link>
+                                <Link
+                                    to="/servizi"
                                     className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-lg font-bold text-lg transition-all backdrop-blur-sm flex items-center justify-center"
                                 >
                                     I Nostri Servizi
-                                </button>
+                                </Link>
                             </div>
 
                             {/* Trust Bar / Stats */}
@@ -271,13 +280,13 @@ export default function HomePage({ setCurrentPage }) {
                     <p className="text-xl text-brand-100 mb-10 max-w-2xl mx-auto">
                         Contattaci per una consulenza gratuita e scopri come possiamo aiutarti a realizzare i tuoi obiettivi.
                     </p>
-                    <button
-                        onClick={() => setCurrentPage('contatti')}
+                    <Link
+                        to="/contatti"
                         className="bg-white text-brand-700 px-10 py-4 rounded-xl font-bold text-lg hover:bg-brand-50 transition-all transform hover:scale-105 inline-flex items-center shadow-xl"
                     >
                         Contattaci ora
                         <ArrowRight className="ml-2 w-6 h-6" />
-                    </button>
+                    </Link>
                 </div>
             </section>
         </div>

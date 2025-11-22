@@ -9,6 +9,14 @@
 
 ---
 
+## 🧠 Agent Protocol
+
+> [!IMPORTANT]
+> **CRITICAL INSTRUCTION**: You MUST always read this file (`AGENT.md`) at the start of a session to ground yourself in the project context.
+> **MANDATORY UPDATE**: You MUST update this file after completing a task to reflect new architectural decisions, known issues, or completed features. Keep this documentation living and accurate.
+
+---
+
 ## 🎨 Brand Identity
 
 ### Primary Colors
@@ -57,6 +65,13 @@ gs-elettrotecnica-modern/
 │   │   ├── ChiSiamoPage.jsx (About Us)
 │   │   ├── ServiziPage.jsx (Services)
 │   │   └── ContattiPage.jsx (Contact)
+│   │   └── services/    # Individual Service Pages
+│   │       ├── ImpiantiElettriciPage.jsx
+│   │       ├── AutomazionePage.jsx
+│   │       ├── QuadriElettriciPage.jsx
+│   │       ├── EnergieRinnovabiliPage.jsx
+│   │       ├── RevampingPage.jsx
+│   │       └── ServiziAggiuntiviPage.jsx
 │   ├── styles/
 │   │   └── variables.css  # CSS custom properties (design system)
 │   ├── utils/
@@ -261,7 +276,7 @@ npm run lint
 - **Micro-interactions:** Hover effects, magnetic buttons, particle effects
 
 ### Responsive Design
-- Mobile-first approach
+- **Mobile-first approach**
 - Breakpoints: sm, md, lg, xl (Tailwind defaults)
 - Flexible grid layouts
 - Touch-friendly interactive elements
@@ -354,6 +369,6 @@ For questions or issues related to this project, refer to the conversation histo
 
 ---
 
-**Last Updated:** 2025-11-20  
-**Version:** 1.0.0  
+**Last Updated:** 2025-11-22  
+**Version:** 1.0.1  
 **Maintained by:** AI Agent (Antigravity)

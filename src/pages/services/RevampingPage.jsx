@@ -1,8 +1,10 @@
 import React from 'react';
-import { Wrench, CheckCircle, ArrowRight, RefreshCw, ShieldAlert, TrendingUp, Activity } from 'lucide-react';
+import { Wrench, CheckCircle, ArrowRight, RefreshCw, Shield, TrendingUp, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-export default function RevampingPage({ setCurrentPage }) {
+export default function RevampingPage() {
     const features = [
         {
             title: 'Aggiornamento Tecnologico',
@@ -12,7 +14,7 @@ export default function RevampingPage({ setCurrentPage }) {
         {
             title: 'Messa a Norma',
             description: 'Adeguamento dei macchinari alle attuali normative di sicurezza (Direttiva Macchine), con installazione di ripari e dispositivi di sicurezza.',
-            icon: <ShieldAlert className="w-6 h-6 text-brand-600 dark:text-brand-400" />
+            icon: <Shield className="w-6 h-6 text-brand-600 dark:text-brand-400" />
         },
         {
             title: 'Ottimizzazione Performance',
@@ -22,12 +24,17 @@ export default function RevampingPage({ setCurrentPage }) {
         {
             title: 'Diagnostica Avanzata',
             description: 'Implementazione di sistemi di diagnostica per facilitare la ricerca guasti e ridurre i tempi di fermo macchina.',
-            icon: <Activity className="w-6 h-6 text-brand-600 dark:text-brand-400" />
+            icon: <Zap className="w-6 h-6 text-brand-600 dark:text-brand-400" />
         }
     ];
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
+            <Helmet>
+                <title>Revamping Macchinari - GS Elettrotecnica | Ammodernamento Impianti</title>
+                <meta name="description" content="Revamping e ammodernamento di macchinari industriali. Adeguamento normativo CE, ottimizzazione performance, efficienza energetica. Nuova vita ai tuoi impianti." />
+                <link rel="canonical" href="https://www.elettrotecnicags.it/servizi/revamping" />
+            </Helmet>
             {/* Header */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -126,13 +133,13 @@ export default function RevampingPage({ setCurrentPage }) {
                     <p className="text-xl text-slate-300 mb-10">
                         Inviaci i dettagli del tuo macchinario per una valutazione preliminare gratuita.
                     </p>
-                    <button
-                        onClick={() => setCurrentPage('contatti')}
+                    <Link
+                        to="/contatti"
                         className="px-10 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/25 flex items-center justify-center gap-2 mx-auto group"
                     >
                         Richiedi Valutazione
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                 </div>
             </section>
         </div>

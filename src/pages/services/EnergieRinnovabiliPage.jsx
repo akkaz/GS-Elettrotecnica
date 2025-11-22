@@ -1,8 +1,10 @@
 import React from 'react';
 import { Sun, CheckCircle, ArrowRight, Battery, Zap, BarChart3, Leaf } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-export default function EnergieRinnovabiliPage({ setCurrentPage }) {
+export default function EnergieRinnovabiliPage() {
     const features = [
         {
             title: 'Impianti Fotovoltaici',
@@ -28,6 +30,12 @@ export default function EnergieRinnovabiliPage({ setCurrentPage }) {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
+            <Helmet>
+                <title>Energie Rinnovabili - GS Elettrotecnica | Fotovoltaico e Efficienza Energetica</title>
+                <meta name="description" content="Soluzioni per energie rinnovabili: impianti fotovoltaici, sistemi di accumulo, efficienza energetica. Partner Novatech Automation per un futuro sostenibile." />
+                <link rel="canonical" href="https://www.elettrotecnicags.it/servizi/energie-rinnovabili" />
+            </Helmet>
+
             {/* Header */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -127,13 +135,13 @@ export default function EnergieRinnovabiliPage({ setCurrentPage }) {
                         Scopri quanto puoi risparmiare con un impianto fotovoltaico su misura.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button
-                            onClick={() => setCurrentPage('contatti')}
+                        <Link
+                            to="/contatti"
                             className="px-10 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/25 flex items-center justify-center gap-2 group"
                         >
                             Richiedi Analisi Energetica
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                         <a
                             href="http://www.novatechautomation.it/"
                             target="_blank"

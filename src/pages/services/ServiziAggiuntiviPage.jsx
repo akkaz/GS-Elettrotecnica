@@ -1,18 +1,20 @@
 import React from 'react';
-import { Shield, CheckCircle, ArrowRight, PhoneCall, Flame, GraduationCap, Wrench } from 'lucide-react';
+import { Shield, CheckCircle, ArrowRight, Headphones, GraduationCap, FileText, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-export default function ServiziAggiuntiviPage({ setCurrentPage }) {
+export default function ServiziAggiuntiviPage() {
     const features = [
         {
             title: 'Manutenzione Programmata',
             description: 'Piani di manutenzione personalizzati per prevenire guasti e garantire la massima efficienza degli impianti nel tempo.',
-            icon: <Wrench className="w-6 h-6 text-brand-600 dark:text-brand-400" />
+            icon: <FileText className="w-6 h-6 text-brand-600 dark:text-brand-400" />
         },
         {
             title: 'Impianti Antincendio',
             description: 'Installazione e manutenzione di sistemi di rilevazione fumi e spegnimento automatico, conformi alle normative vigenti.',
-            icon: <Flame className="w-6 h-6 text-brand-600 dark:text-brand-400" />
+            icon: <Clock className="w-6 h-6 text-brand-600 dark:text-brand-400" />
         },
         {
             title: 'Formazione Tecnica',
@@ -22,12 +24,17 @@ export default function ServiziAggiuntiviPage({ setCurrentPage }) {
         {
             title: 'Reperibilità 24/7',
             description: 'Servizio di assistenza tecnica urgente garantito 24 ore su 24, 7 giorni su 7, per i clienti contrattualizzati.',
-            icon: <PhoneCall className="w-6 h-6 text-brand-600 dark:text-brand-400" />
+            icon: <Headphones className="w-6 h-6 text-brand-600 dark:text-brand-400" />
         }
     ];
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
+            <Helmet>
+                <title>Servizi Aggiuntivi - GS Elettrotecnica | Assistenza e Manutenzione</title>
+                <meta name="description" content="Servizi post-vendita, assistenza rapida, formazione operatori, contratti di manutenzione programmata. Supporto continuo per i tuoi impianti." />
+                <link rel="canonical" href="https://www.elettrotecnicags.it/servizi/servizi-aggiuntivi" />
+            </Helmet>
             {/* Header */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -126,13 +133,13 @@ export default function ServiziAggiuntiviPage({ setCurrentPage }) {
                     <p className="text-xl text-slate-300 mb-10">
                         Scopri tutti i vantaggi dei nostri contratti di manutenzione e assistenza.
                     </p>
-                    <button
-                        onClick={() => setCurrentPage('contatti')}
+                    <Link
+                        to="/contatti"
                         className="px-10 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/25 flex items-center justify-center gap-2 mx-auto group"
                     >
-                        Contattaci Ora
+                        Richiedi Assistenza
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                 </div>
             </section>
         </div>

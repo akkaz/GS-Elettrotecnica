@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 export default function ContattiPage() {
     const [formData, setFormData] = useState({
@@ -24,31 +25,27 @@ export default function ContattiPage() {
         setStatus({ submitting: true, submitted: false, error: null });
 
         try {
-            // Check for environment variables
-            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-            if (!serviceId || !templateId || !publicKey || serviceId === 'YOUR_SERVICE_ID') {
-                throw new Error('EmailJS configuration missing. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY in .env file.');
-            }
-
-            // Import dynamically to avoid issues if package not installed (though we installed it)
-            const emailjs = await import('@emailjs/browser');
-
-            await emailjs.default.send(
-                serviceId,
-                templateId,
-                {
-                    to_email: 'giomarco@cleversoft.it',
-                    from_name: `${formData.nome} ${formData.cognome}`,
-                    from_email: formData.email,
-                    phone: formData.telefono,
-                    company: formData.azienda,
-                    message: formData.messaggio
+            // Use relative API route - works in both dev and production
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
-                publicKey
-            );
+                body: JSON.stringify({
+                    nome: formData.nome,
+                    cognome: formData.cognome,
+                    email: formData.email,
+                    telefono: formData.telefono,
+                    azienda: formData.azienda,
+                    messaggio: formData.messaggio
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Errore durante l\'invio');
+            }
 
             setStatus({ submitting: false, submitted: true, error: null });
             setFormData({
@@ -62,7 +59,7 @@ export default function ContattiPage() {
             });
             setTimeout(() => setStatus(prev => ({ ...prev, submitted: false })), 5000);
         } catch (error) {
-            console.error('EmailJS Error:', error);
+            console.error('Error:', error);
             setStatus({
                 submitting: false,
                 submitted: false,
@@ -114,6 +111,11 @@ export default function ContattiPage() {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
+            <Helmet>
+                <title>Contatti - GS Elettrotecnica | Richiedi un Preventivo</title>
+                <meta name="description" content="Contatta GS Elettrotecnica per informazioni o preventivi. Telefono: +39 0364 341038. Sede: Cividate Camuno (BS). Siamo a tua disposizione." />
+                <link rel="canonical" href="https://www.elettrotecnicags.it/contatti" />
+            </Helmet>
             {/* Modern Header Section */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">

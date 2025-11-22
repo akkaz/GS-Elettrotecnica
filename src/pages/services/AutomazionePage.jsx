@@ -1,8 +1,10 @@
 import React from 'react';
 import { Settings, CheckCircle, ArrowRight, Cpu, Monitor, Network, Database } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-export default function AutomazionePage({ setCurrentPage }) {
+export default function AutomazionePage() {
     const features = [
         {
             title: 'Programmazione PLC',
@@ -28,6 +30,12 @@ export default function AutomazionePage({ setCurrentPage }) {
 
     return (
         <div className="overflow-hidden bg-white dark:bg-slate-950">
+            <Helmet>
+                <title>Automazione Industriale - GS Elettrotecnica | PLC, HMI, SCADA</title>
+                <meta name="description" content="Soluzioni avanzate di automazione industriale: programmazione PLC, sistemi HMI/SCADA, motion control e integrazione Industria 4.0. Partner Siemens, Allen Bradley, Omron." />
+                <link rel="canonical" href="https://www.elettrotecnicags.it/servizi/automazione-industriale" />
+            </Helmet>
+
             {/* Header */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -126,13 +134,13 @@ export default function AutomazionePage({ setCurrentPage }) {
                     <p className="text-xl text-slate-300 mb-10">
                         Parla con i nostri esperti per scoprire come ottimizzare i tuoi processi industriali.
                     </p>
-                    <button
-                        onClick={() => setCurrentPage('contatti')}
+                    <Link
+                        to="/contatti"
                         className="px-10 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/25 flex items-center justify-center gap-2 mx-auto group"
                     >
                         Richiedi Consulenza
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                 </div>
             </section>
         </div>
