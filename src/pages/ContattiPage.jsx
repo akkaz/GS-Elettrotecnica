@@ -139,7 +139,7 @@ export default function ContattiPage() {
                 <link rel="canonical" href="https://www.elettrotecnicags.it/contatti" />
             </Head>
             {/* Modern Header Section */}
-            <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+            <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden pt-20 md:pt-0">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/solar-panels.webp"
@@ -148,16 +148,16 @@ export default function ContattiPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/80 to-slate-950/50" />
                 </div>
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                        <h1 className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6">
                             Contatti
                         </h1>
-                        <p className="text-xl text-slate-200 max-w-3xl leading-relaxed">
+                        <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-relaxed">
                             Siamo a tua disposizione per ogni informazione o richiesta di preventivo.
                         </p>
                     </motion.div>

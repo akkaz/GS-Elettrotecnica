@@ -36,7 +36,7 @@ export default function ImpiantiElettriciPage() {
                 <link rel="canonical" href="https://www.elettrotecnicags.it/servizi/impianti-elettrici" />
             </Head>
             {/* Header */}
-            <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+            <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden pt-20 md:pt-0">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/industrial-factory.webp"
@@ -45,20 +45,20 @@ export default function ImpiantiElettriciPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/80 to-slate-950/50" />
                 </div>
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-300 text-sm font-medium mb-6 backdrop-blur-sm">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-300 text-sm font-medium mb-4 md:mb-6 backdrop-blur-sm">
                             <Zap className="w-4 h-4" />
                             <span>Civile e Industriale</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                        <h1 className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6">
                             Impiantistica Elettrica
                         </h1>
-                        <p className="text-xl text-slate-200 max-w-3xl leading-relaxed">
+                        <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-relaxed">
                             Progettazione, installazione e manutenzione di impianti elettrici all'avanguardia per ogni settore.
                         </p>
                     </motion.div>
