@@ -5,6 +5,12 @@ import HomePage from './pages/HomePage';
 import ChiSiamoPage from './pages/ChiSiamoPage';
 import ServiziPage from './pages/ServiziPage';
 import ContattiPage from './pages/ContattiPage';
+import ImpiantiElettriciPage from './pages/services/ImpiantiElettriciPage';
+import AutomazionePage from './pages/services/AutomazionePage';
+import QuadriElettriciPage from './pages/services/QuadriElettriciPage';
+import EnergieRinnovabiliPage from './pages/services/EnergieRinnovabiliPage';
+import RevampingPage from './pages/services/RevampingPage';
+import ServiziAggiuntiviPage from './pages/services/ServiziAggiuntiviPage';
 import { AnimatePresence, motion } from 'framer-motion';
 
 function App() {
@@ -18,7 +24,13 @@ function App() {
     home: <HomePage setCurrentPage={setCurrentPage} />,
     'chi-siamo': <ChiSiamoPage setCurrentPage={setCurrentPage} />,
     servizi: <ServiziPage setCurrentPage={setCurrentPage} />,
-    contatti: <ContattiPage />
+    contatti: <ContattiPage />,
+    'impianti-elettrici': <ImpiantiElettriciPage setCurrentPage={setCurrentPage} />,
+    'automazione-industriale': <AutomazionePage setCurrentPage={setCurrentPage} />,
+    'quadri-elettrici': <QuadriElettriciPage setCurrentPage={setCurrentPage} />,
+    'energie-rinnovabili': <EnergieRinnovabiliPage setCurrentPage={setCurrentPage} />,
+    'revamping': <RevampingPage setCurrentPage={setCurrentPage} />,
+    'servizi-aggiuntivi': <ServiziAggiuntiviPage setCurrentPage={setCurrentPage} />
   };
 
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Factory, Settings, Shield } from 'lucide-react';
+import { Factory, Settings, Shield, Award, Users, History } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Timeline } from '../components/ui/Timeline';
 
 export default function ChiSiamoPage() {
     const values = [
@@ -14,220 +13,179 @@ export default function ChiSiamoPage() {
     ];
 
     return (
-        <div className="pt-20">
-            {/* Hero Section */}
-            <section className="bg-bg-dark text-white py-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(0,127,142,0.1),transparent_50%)]" />
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <motion.h1
+        <div className="overflow-hidden bg-white dark:bg-slate-950">
+            {/* Modern Header Section */}
+            <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/automation-plc.png"
+                        alt="Automation Expertise"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/80 to-slate-950/50" />
+                </div>
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-bold mb-6"
+                        transition={{ duration: 0.6 }}
                     >
-                        Chi siamo
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-xl text-slate-200 max-w-3xl leading-relaxed"
-                    >
-                        Un'azienda che dal 1990 opera con passione e competenza nel settore dell'impiantistica e dell'automazione industriale.
-                    </motion.p>
+                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                            Chi Siamo
+                        </h1>
+                        <p className="text-xl text-slate-200 max-w-3xl leading-relaxed">
+                            Un'azienda che dal 1990 opera con passione e competenza nel settore dell'impiantistica e dell'automazione industriale.
+                        </p>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Modern Story Timeline Section */}
-            <section className="py-24 bg-gradient-to-b from-white to-slate-50">
+            <section className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.h2
-                        className="text-4xl font-bold text-center mb-4 text-slate-900"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        La nostra storia
-                    </motion.h2>
-                    <motion.p
-                        className="text-center text-slate-600 mb-16 max-w-2xl mx-auto"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                    >
-                        Un percorso di crescita e innovazione che dura da oltre 30 anni
-                    </motion.p>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+                            La nostra storia
+                        </h2>
+                        <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                            Un percorso di crescita e innovazione che dura da oltre 30 anni
+                        </p>
+                    </div>
 
                     {/* Horizontal Timeline */}
                     <div className="relative">
                         {/* Timeline Line */}
-                        <div className="hidden md:block absolute top-32 left-0 right-0 h-1 bg-gradient-to-r from-brand/20 via-brand to-brand/20" />
+                        <div className="hidden md:block absolute top-32 left-0 right-0 h-1 bg-gradient-to-r from-brand-200 via-brand-500 to-brand-200 dark:from-brand-900 dark:via-brand-700 dark:to-brand-900" />
 
                         {/* Timeline Events */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
                             {/* 1990 */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0 }}
-                                className="relative"
-                            >
-                                {/* Year Badge */}
+                            <div className="relative group">
                                 <div className="flex justify-center mb-8">
-                                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand to-brand-dark text-white flex items-center justify-center font-bold text-xl shadow-brand z-10 relative">
+                                    <div className="w-20 h-20 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-brand-500/30 z-10 relative group-hover:scale-110 transition-transform duration-300">
                                         1990
                                     </div>
                                 </div>
-
-                                {/* Event Card */}
-                                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 group hover:-translate-y-2">
-                                    {/* Icon */}
-                                    <div className="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors">
-                                        <Factory className="w-7 h-7 text-brand" />
+                                <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                                    <div className="w-12 h-12 bg-brand-50 dark:bg-brand-900/20 rounded-xl flex items-center justify-center mb-4 text-brand-600 dark:text-brand-400">
+                                        <History className="w-6 h-6" />
                                     </div>
-
-                                    {/* Title */}
-                                    <h3 className="font-bold text-xl mb-3 text-slate-900">
-                                        La Fondazione
-                                    </h3>
-
-                                    {/* Description */}
-                                    <p className="text-slate-600 leading-relaxed">
-                                        Nasce GS Elettrotecnica come impresa individuale per la realizzazione di impianti elettrici civili, ponendo le basi per un futuro di eccellenza.
+                                    <h3 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">La Fondazione</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                        Nasce GS Elettrotecnica come impresa individuale per la realizzazione di impianti elettrici civili.
                                     </p>
                                 </div>
-                            </motion.div>
+                            </div>
 
                             {/* 2000s */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
-                                className="relative"
-                            >
-                                {/* Year Badge */}
+                            <div className="relative group">
                                 <div className="flex justify-center mb-8">
-                                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand to-brand-dark text-white flex items-center justify-center font-bold text-lg shadow-brand z-10 relative">
+                                    <div className="w-20 h-20 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-brand-500/30 z-10 relative group-hover:scale-110 transition-transform duration-300">
                                         2000s
                                     </div>
                                 </div>
-
-                                {/* Event Card */}
-                                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 group hover:-translate-y-2">
-                                    {/* Icon */}
-                                    <div className="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors">
-                                        <Settings className="w-7 h-7 text-brand" />
+                                <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                                    <div className="w-12 h-12 bg-brand-50 dark:bg-brand-900/20 rounded-xl flex items-center justify-center mb-4 text-brand-600 dark:text-brand-400">
+                                        <Settings className="w-6 h-6" />
                                     </div>
-
-                                    {/* Title */}
-                                    <h3 className="font-bold text-xl mb-3 text-slate-900">
-                                        Crescita e Specializzazione
-                                    </h3>
-
-                                    {/* Description */}
-                                    <p className="text-slate-600 leading-relaxed">
-                                        L'azienda cresce e diversifica le proprie attività, specializzandosi sempre più nell'automazione industriale e acquisendo competenze avanzate.
+                                    <h3 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">Crescita</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                        L'azienda cresce e si specializza nell'automazione industriale acquisendo competenze avanzate.
                                     </p>
                                 </div>
-                            </motion.div>
+                            </div>
+
+                            {/* 2010s */}
+                            <div className="relative group">
+                                <div className="flex justify-center mb-8">
+                                    <div className="w-20 h-20 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-brand-500/30 z-10 relative group-hover:scale-110 transition-transform duration-300">
+                                        2010s
+                                    </div>
+                                </div>
+                                <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                                    <div className="w-12 h-12 bg-brand-50 dark:bg-brand-900/20 rounded-xl flex items-center justify-center mb-4 text-brand-600 dark:text-brand-400">
+                                        <Factory className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">Espansione</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                        Ampliamento della struttura produttiva fino a 1500 m² e investimenti in tecnologie all'avanguardia.
+                                    </p>
+                                </div>
+                            </div>
 
                             {/* Oggi */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.4 }}
-                                className="relative"
-                            >
-                                {/* Year Badge */}
+                            <div className="relative group">
                                 <div className="flex justify-center mb-8">
-                                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand to-brand-dark text-white flex items-center justify-center font-bold text-xl shadow-brand z-10 relative">
+                                    <div className="w-20 h-20 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-brand-500/30 z-10 relative group-hover:scale-110 transition-transform duration-300">
                                         Oggi
                                     </div>
                                 </div>
-
-                                {/* Event Card */}
-                                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 group hover:-translate-y-2">
-                                    {/* Icon */}
-                                    <div className="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors">
-                                        <Shield className="w-7 h-7 text-brand" />
+                                <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                                    <div className="w-12 h-12 bg-brand-50 dark:bg-brand-900/20 rounded-xl flex items-center justify-center mb-4 text-brand-600 dark:text-brand-400">
+                                        <Award className="w-6 h-6" />
                                     </div>
-
-                                    {/* Title */}
-                                    <h3 className="font-bold text-xl mb-3 text-slate-900">
-                                        Leader del Settore
-                                    </h3>
-
-                                    {/* Description */}
-                                    <p className="text-slate-600 leading-relaxed mb-4">
-                                        GS Elettrotecnica Automazioni Industriali Srl è un punto di riferimento nel settore, con una struttura di 1500mq.
-                                    </p>
-                                    <p className="text-slate-600 leading-relaxed">
-                                        Viene fondata <strong className="text-brand">Novatech Automation Srl</strong>, dedicata alle energie rinnovabili e all'efficientamento energetico.
+                                    <h3 className="font-bold text-xl mb-3 text-slate-900 dark:text-white">Leader</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                        Punto di riferimento nel settore. Nasce <strong className="text-brand-600 dark:text-brand-400">Novatech Automation</strong> per le energie rinnovabili.
                                     </p>
                                 </div>
-                            </motion.div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Numbers Section */}
-            <section className="py-16 bg-slate-50">
+            <section className="py-16 bg-slate-50 dark:bg-slate-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="bg-white p-8 rounded-2xl shadow-sm text-center border border-slate-100">
-                            <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-6">
-                                <Factory className="w-8 h-8 text-blue-600" />
+                        <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm text-center border border-slate-100 dark:border-slate-700">
+                            <div className="w-16 h-16 bg-brand-50 dark:bg-brand-900/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                                <Users className="w-8 h-8 text-brand-600 dark:text-brand-400" />
                             </div>
-                            <div className="text-4xl font-bold text-slate-900 mb-2">40+</div>
-                            <div className="text-slate-600 font-medium">dipendenti qualificati tra le due società</div>
+                            <div className="text-4xl font-bold text-slate-900 dark:text-white mb-2">40+</div>
+                            <div className="text-slate-600 dark:text-slate-400 font-medium">dipendenti qualificati</div>
                         </div>
-                        <div className="bg-white p-8 rounded-2xl shadow-sm text-center border border-slate-100">
-                            <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-6">
-                                <Settings className="w-8 h-8 text-blue-600" />
+                        <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm text-center border border-slate-100 dark:border-slate-700">
+                            <div className="w-16 h-16 bg-brand-50 dark:bg-brand-900/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                                <Factory className="w-8 h-8 text-brand-600 dark:text-brand-400" />
                             </div>
-                            <div className="text-4xl font-bold text-slate-900 mb-2">1500 m²</div>
-                            <div className="text-slate-600 font-medium">di struttura coperta per produzione</div>
+                            <div className="text-4xl font-bold text-slate-900 dark:text-white mb-2">1500 m²</div>
+                            <div className="text-slate-600 dark:text-slate-400 font-medium">di struttura produttiva</div>
                         </div>
-                        <div className="bg-white p-8 rounded-2xl shadow-sm text-center border border-slate-100">
-                            <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-6">
-                                <Shield className="w-8 h-8 text-blue-600" />
+                        <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm text-center border border-slate-100 dark:border-slate-700">
+                            <div className="w-16 h-16 bg-brand-50 dark:bg-brand-900/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                                <Shield className="w-8 h-8 text-brand-600 dark:text-brand-400" />
                             </div>
-                            <div className="text-4xl font-bold text-slate-900 mb-2">30+</div>
-                            <div className="text-slate-600 font-medium">anni di esperienza nel settore</div>
+                            <div className="text-4xl font-bold text-slate-900 dark:text-white mb-2">30+</div>
+                            <div className="text-slate-600 dark:text-slate-400 font-medium">anni di esperienza</div>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Values Section */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-white dark:bg-slate-950">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-16 text-center">I nostri valori</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-16 text-center">I nostri valori</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {values.map((value, index) => (
-                            <motion.div
+                            <div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="p-8 bg-slate-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100"
+                                className="p-8 bg-slate-50 dark:bg-slate-900 rounded-2xl hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100 dark:hover:border-slate-700"
                             >
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">{value.title}</h3>
-                                <p className="text-slate-600 leading-relaxed">{value.description}</p>
-                            </motion.div>
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{value.title}</h3>
+                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{value.description}</p>
+                            </div>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* Facility Section */}
-            <section className="py-24 bg-slate-900 text-white overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
+                <div className="absolute inset-0 bg-[url('/industrial-factory.png')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-8">La nostra struttura</h2>
@@ -239,12 +197,9 @@ export default function ChiSiamoPage() {
                             </p>
                         </div>
                         <div className="relative">
-                            <div className="aspect-[4/3] bg-slate-800 rounded-2xl flex items-center justify-center border border-slate-700">
-                                <Factory className="w-40 h-40 text-slate-700" />
+                            <div className="aspect-[4/3] bg-slate-800 rounded-2xl flex items-center justify-center border border-slate-700 overflow-hidden">
+                                <img src="/industrial-factory.png" alt="Facility" className="w-full h-full object-cover opacity-80" />
                             </div>
-                            {/* Decorative dots */}
-                            <div className="absolute -top-4 -right-4 w-24 h-24 bg-brand/20 rounded-full blur-2xl" />
-                            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl" />
                         </div>
                     </div>
                 </div>

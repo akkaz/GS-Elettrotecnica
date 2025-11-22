@@ -9,8 +9,8 @@ export default function Footer({ setCurrentPage }) {
                     {/* Company Info */}
                     <div className="space-y-6">
                         <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-brand to-brand-dark rounded-xl flex items-center justify-center shadow-lg shadow-brand/20">
-                                <Zap className="w-6 h-6 text-white" />
+                            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-brand/20 p-1">
+                                <img src="/logo.png" alt="GS Elettrotecnica" className="w-full h-full object-contain" />
                             </div>
                             <div>
                                 <div className="font-bold text-lg leading-none">GS Elettrotecnica</div>
@@ -59,7 +59,9 @@ export default function Footer({ setCurrentPage }) {
                             </li>
                             <li className="flex items-start space-x-3 text-slate-400">
                                 <MapPin className="w-5 h-5 mt-0.5" />
-                                <span>Via delle Cave, 17<br />25040 Cividate Camuno (BS)</span>
+                                <a href="https://maps.google.com/?q=Via+delle+Cave+17+Cividate+Camuno+BS" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">
+                                    Via delle Cave, 17<br />25040 Cividate Camuno (BS)
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -71,8 +73,10 @@ export default function Footer({ setCurrentPage }) {
                             <Clock className="w-5 h-5 mt-0.5" />
                             <div>
                                 <div className="font-medium text-white mb-1">Lunedì - Venerdì</div>
-                                <div>8:00 - 12:00</div>
-                                <div>13:00 - 18:00</div>
+                                <div className="grid grid-cols-2 gap-x-4">
+                                    <span>08:00 - 12:00</span>
+                                    <span>13:00 - 18:00</span>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navigation({ currentPage, setCurrentPage }) {
@@ -21,168 +21,106 @@ export default function Navigation({ currentPage, setCurrentPage }) {
         { id: 'contatti', label: 'Contatti' }
     ];
 
-    // Show solid background if not on home page OR if scrolled
-    const showSolidBg = currentPage !== 'home' || scrolled;
+    // Always show solid background on mobile, or if scrolled/not on home
+    const showSolidBg = currentPage !== 'home' || scrolled || mobileMenuOpen;
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${showSolidBg
-                ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-200 py-2'
-                : 'bg-transparent py-4'
+            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${showSolidBg
+                ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 dark:bg-slate-950/95 dark:border-slate-800 py-3'
+                : 'bg-transparent py-5'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
-                    <motion.button
+                    <button
                         onClick={() => setCurrentPage('home')}
-                        className="flex items-center space-x-3 group"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center space-x-3 focus:outline-none"
                     >
-                        <motion.div
-                            animate={{ rotate: [0, 5, -5, 0] }}
-                            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                        >
-                            <img
-                                src="/logo.png"
-                                alt="GS Elettrotecnica Logo"
-                                className="h-12 w-auto object-contain"
-                            />
-                        </motion.div>
-                    </motion.button>
+                        <img
+                            src="/logo.png"
+                            alt="GS Elettrotecnica Logo"
+                            className="h-10 md:h-12 w-auto object-contain"
+                        />
+                    </button>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-8">
-                        {navItems.map((item, index) => (
-                            <motion.button
+                        {navItems.map((item) => (
+                            <button
                                 key={item.id}
                                 onClick={() => setCurrentPage(item.id)}
-                                className={`text-sm font-medium transition-all duration-300 relative group ${currentPage === item.id
-                                    ? 'text-brand-600'
-                                    : showSolidBg ? 'text-gray-700 hover:text-brand-600' : 'text-white hover:text-brand-300'
+                                className={`text-sm font-medium transition-colors duration-200 relative group ${currentPage === item.id
+                                    ? 'text-brand-600 dark:text-brand-400'
+                                    : showSolidBg ? 'text-slate-700 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400' : 'text-white hover:text-brand-300'
                                     }`}
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
                             >
                                 {item.label}
-                                <motion.span
-                                    className={`absolute -bottom-1 left-0 h-0.5 ${currentPage === item.id ? 'bg-brand-600' : 'bg-brand-500'}`}
-                                    initial={{ width: 0 }}
-                                    animate={{ width: currentPage === item.id ? '100%' : 0 }}
-                                    whileHover={{ width: '100%' }}
-                                    transition={{ duration: 0.3 }}
+                                <span
+                                    className={`absolute -bottom-1 left-0 h-0.5 bg-brand-600 dark:bg-brand-400 transition-all duration-300 ${currentPage === item.id ? 'w-full' : 'w-0 group-hover:w-full'}`}
                                 />
-                            </motion.button>
+                            </button>
                         ))}
-                        <motion.button
+                        <button
                             onClick={() => setCurrentPage('contatti')}
-                            className="relative bg-brand-600 text-white px-6 py-2.5 rounded-full font-medium overflow-hidden group"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            className="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                         >
-                            <span className="relative z-10">Contattaci</span>
-                            <motion.div
-                                className="absolute inset-0 bg-brand-700"
-                                initial={{ x: '-100%' }}
-                                whileHover={{ x: 0 }}
-                                transition={{ duration: 0.3 }}
-                            />
-                        </motion.button>
+                            Contattaci
+                        </button>
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <motion.button
+                    <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className={`md:hidden p-2 rounded-lg transition-colors ${showSolidBg ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                        className={`md:hidden p-2 rounded-lg transition-colors ${showSolidBg ? 'text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800' : 'text-white hover:bg-white/10'
                             }`}
-                        whileTap={{ scale: 0.9 }}
+                        aria-label="Toggle menu"
                     >
-                        <AnimatePresence mode="wait">
-                            {mobileMenuOpen ? (
-                                <motion.div
-                                    key="close"
-                                    initial={{ rotate: -90, opacity: 0 }}
-                                    animate={{ rotate: 0, opacity: 1 }}
-                                    exit={{ rotate: 90, opacity: 0 }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <X className="w-6 h-6" />
-                                </motion.div>
-                            ) : (
-                                <motion.div
-                                    key="menu"
-                                    initial={{ rotate: 90, opacity: 0 }}
-                                    animate={{ rotate: 0, opacity: 1 }}
-                                    exit={{ rotate: -90, opacity: 0 }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <Menu className="w-6 h-6" />
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </motion.button>
+                        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                    </button>
                 </div>
             </div>
 
             {/* Mobile Menu */}
             <AnimatePresence>
                 {mobileMenuOpen && (
-                    <>
-                        {/* Backdrop */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
-                            onClick={() => setMobileMenuOpen(false)}
-                        />
-
-                        {/* Menu Panel */}
-                        <motion.div
-                            initial={{ opacity: 0, x: '100%' }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: '100%' }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed right-0 top-[72px] bottom-0 w-80 max-w-[85vw] bg-white/95 backdrop-blur-xl border-l border-gray-200 shadow-2xl z-50 md:hidden overflow-y-auto"
-                        >
-                            <div className="px-6 py-8 space-y-3">
-                                {navItems.map((item, index) => (
-                                    <motion.button
-                                        key={item.id}
-                                        onClick={() => {
-                                            setCurrentPage(item.id);
-                                            setMobileMenuOpen(false);
-                                        }}
-                                        className={`block w-full text-left px-5 py-4 rounded-xl font-medium transition-all ${currentPage === item.id
-                                            ? 'bg-brand-50 text-brand-700 shadow-md'
-                                            : 'text-gray-700 hover:bg-gray-50'
-                                            }`}
-                                        initial={{ opacity: 0, x: 50 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: index * 0.1 }}
-                                        whileTap={{ scale: 0.98 }}
-                                    >
-                                        {item.label}
-                                    </motion.button>
-                                ))}
-                                <motion.button
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 overflow-hidden shadow-xl"
+                    >
+                        <div className="px-4 py-6 space-y-4">
+                            {navItems.map((item) => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => {
+                                        setCurrentPage(item.id);
+                                        setMobileMenuOpen(false);
+                                    }}
+                                    className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-colors ${currentPage === item.id
+                                        ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/20 dark:text-brand-400'
+                                        : 'text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-900'
+                                        }`}
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
+                            <div className="pt-2">
+                                <button
                                     onClick={() => {
                                         setCurrentPage('contatti');
                                         setMobileMenuOpen(false);
                                     }}
-                                    className="w-full bg-gradient-to-r from-brand-600 to-brand-700 text-white px-5 py-4 rounded-xl font-medium hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg shadow-brand-500/30"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: navItems.length * 0.1 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    className="w-full bg-brand-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-brand-700 transition-colors shadow-md"
                                 >
                                     Contattaci
-                                </motion.button>
+                                </button>
                             </div>
-                        </motion.div>
-                    </>
+                        </div>
+                    </motion.div>
                 )}
             </AnimatePresence>
         </nav>

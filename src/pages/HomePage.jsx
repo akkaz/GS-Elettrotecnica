@@ -1,47 +1,41 @@
 import React from 'react';
-import { Factory, Settings, Sun, Wrench, ArrowRight, CheckCircle, ChevronRight, ChevronDown } from 'lucide-react';
+import { Factory, Settings, Sun, Wrench, ArrowRight, CheckCircle, ChevronDown, Shield, Award, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AnimatedNumber from '../components/ui/AnimatedNumber';
-import { AuroraBackground } from '../components/ui/AuroraBackground';
-import { BentoGrid, BentoGridItem } from '../components/ui/BentoGrid';
 import { InfiniteMovingCards } from '../components/ui/InfiniteMovingCards';
-import { FloatingParticles, GeometricShapes } from '../components/ui/FloatingParticles';
-import { MagneticButton } from '../components/ui/MagneticButton';
-import { GlassmorphicCard } from '../components/ui/GlassmorphicCard';
 
 export default function HomePage({ setCurrentPage }) {
     const services = [
         {
-            icon: <Factory className="w-12 h-12 text-blue-500" />,
+            icon: <Factory className="w-10 h-10 text-brand-600" />,
             title: 'Impiantistica Industriale',
             description: 'Progettazione e realizzazione impianti elettrici civili e industriali, con manutenzione programmata e interventi rapidi.',
-            header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 overflow-hidden"><img src="/industrial-factory.png" alt="Industrial Factory" className="w-full h-full object-cover" /></div>,
+            image: '/industrial-factory.png',
         },
         {
-            icon: <Settings className="w-12 h-12 text-green-500" />,
+            icon: <Settings className="w-10 h-10 text-brand-600" />,
             title: 'Automazione Industriale',
             description: 'Sistemi PLC e CNC, programmazione e integrazione sistemi di processo, quadri elettrici di ogni dimensione.',
-            header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 overflow-hidden"><img src="/automation-plc.png" alt="Automation PLC" className="w-full h-full object-cover" /></div>,
+            image: '/automation-plc.png',
         },
         {
-            icon: <Sun className="w-12 h-12 text-brand-600" />,
+            icon: <Sun className="w-10 h-10 text-brand-600" />,
             title: 'Energie Rinnovabili',
             description: 'Soluzioni fotovoltaiche, efficientamento energetico e partnership con Novatech Automation.',
-            header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 overflow-hidden"><img src="/solar-panels.png" alt="Solar Panels" className="w-full h-full object-cover" /></div>,
+            image: '/solar-panels.png',
         },
         {
-            icon: <Wrench className="w-12 h-12 text-slate-500" />,
+            icon: <Wrench className="w-10 h-10 text-brand-600" />,
             title: 'Revamping Macchinari',
             description: 'Ammodernamento e restyling, adeguamento normativo e ottimizzazione delle performance.',
-            header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 overflow-hidden"><img src="/machinery-maintenance.png" alt="Machinery Maintenance" className="w-full h-full object-cover" /></div>,
+            image: '/machinery-maintenance.png',
         }
     ];
 
     const stats = [
-        { number: 30, suffix: '+', label: 'anni di esperienza' },
-        { number: 40, suffix: '+', label: 'collaboratori qualificati' },
-        { number: 1500, suffix: '', label: 'm² di struttura produttiva' },
-        { number: 500, suffix: '+', label: 'progetti realizzati' }
+        { number: 30, suffix: '+', label: 'Anni di Esperienza' },
+        { number: 40, suffix: '+', label: 'Collaboratori' },
+        { number: 500, suffix: '+', label: 'Progetti Realizzati' }
     ];
 
     const whyChooseUs = [
@@ -76,148 +70,94 @@ export default function HomePage({ setCurrentPage }) {
     ];
 
     return (
-        <div className="overflow-hidden bg-white dark:bg-black">
-            {/* Hero Section with Aurora Background */}
-            <AuroraBackground className="bg-bg-dark">
-                <FloatingParticles count={30} />
-                <GeometricShapes count={6} />
-                <motion.div
-                    initial={{ opacity: 0.0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                        delay: 0.3,
-                        duration: 0.8,
-                        ease: "easeInOut",
-                    }}
-                    className="relative flex flex-col gap-4 items-center justify-center px-4 pt-32"
-                >
-                    <GlassmorphicCard className="p-8 max-w-4xl mx-auto" blur="lg" opacity={5}>
-                        <div className="text-3xl md:text-7xl font-bold text-center mb-4">
-                            <div className="text-white mb-2">Eccellenza nell'</div>
-                            <motion.div
-                                className="text-transparent bg-clip-text bg-gradient-to-r from-brand-lighter via-brand-light to-brand"
-                                animate={{
-                                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                                }}
-                                transition={{ duration: 5, repeat: Infinity }}
-                                style={{ backgroundSize: '200% 200%' }}
-                            >
-                                Automazione Industriale
-                            </motion.div>
-                        </div>
-                        <div className="font-light text-base md:text-2xl dark:text-neutral-200 py-4 text-slate-200 max-w-2xl text-center mx-auto">
-                            Progettazione, realizzazione e manutenzione di impianti elettrici e sistemi di automazione per l'industria del futuro.
-                        </div>
-                    </GlassmorphicCard>
+        <div className="overflow-hidden bg-white dark:bg-slate-950">
+            {/* Modern Industrial Hero Section */}
+            <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/industrial-factory.png"
+                        alt="Industrial Factory Interior"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/30" />
+                </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 mb-16 mt-6">
-                        <MagneticButton
-                            onClick={() => setCurrentPage('contatti')}
-                            className="bg-brand-600 dark:bg-brand-600 rounded-full w-fit text-white dark:text-white px-8 py-4 font-bold hover:bg-brand-700 transition-all shadow-lg shadow-brand-500/25 relative overflow-hidden group"
-                            strength={0.2}
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20">
+                    <div className="max-w-3xl">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
                         >
-                            <span className="relative z-10">Richiedi preventivo</span>
-                            <motion.div
-                                className="absolute inset-0 bg-gradient-to-r from-brand-700 to-brand-800"
-                                initial={{ x: '-100%' }}
-                                whileHover={{ x: 0 }}
-                                transition={{ duration: 0.3 }}
-                            />
-                        </MagneticButton>
-                        <MagneticButton
-                            onClick={() => setCurrentPage('servizi')}
-                            className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full w-fit text-white px-8 py-4 font-bold hover:bg-white/20 transition-all relative overflow-hidden group"
-                            strength={0.2}
-                        >
-                            <span className="relative z-10">I nostri servizi</span>
-                        </MagneticButton>
-                    </div>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-300 text-sm font-medium mb-6 backdrop-blur-sm">
+                                <Award className="w-4 h-4" />
+                                <span>Leader nell'automazione dal 1995</span>
+                            </div>
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                                Eccellenza nell'
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-teal-200">
+                                    Automazione Industriale
+                                </span>
+                            </h1>
+                            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl">
+                                Progettazione, realizzazione e manutenzione di impianti elettrici e sistemi di automazione avanzati per l'industria del futuro.
+                            </p>
 
-                    {/* Scroll Indicator */}
-                    <motion.div
-                        className="absolute bottom-8"
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                        <ChevronDown className="w-8 h-8 text-white/60" />
-                    </motion.div>
-                </motion.div>
-            </AuroraBackground>
-
-            {/* Stats Section */}
-            <section className="bg-bg-dark border-t border-slate-800 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,127,142,0.05),transparent_70%)]" />
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        {stats.map((stat, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="text-center group"
-                            >
-                                <GlassmorphicCard
-                                    className="p-6 hover:bg-white/[0.15] transition-all duration-300 transform hover:scale-105"
-                                    blur="md"
-                                    opacity={8}
+                            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                                <button
+                                    onClick={() => setCurrentPage('contatti')}
+                                    className="px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-brand-500/25 flex items-center justify-center gap-2 group"
                                 >
-                                    {/* Circular Progress */}
-                                    <div className="relative w-32 h-32 mx-auto mb-4">
-                                        <svg className="transform -rotate-90 w-32 h-32">
-                                            <circle
-                                                cx="64"
-                                                cy="64"
-                                                r="56"
-                                                stroke="rgba(255,255,255,0.1)"
-                                                strokeWidth="8"
-                                                fill="none"
-                                            />
-                                            <motion.circle
-                                                cx="64"
-                                                cy="64"
-                                                r="56"
-                                                stroke="url(#gradient)"
-                                                strokeWidth="8"
-                                                fill="none"
-                                                strokeLinecap="round"
-                                                initial={{ strokeDasharray: "0 352" }}
-                                                whileInView={{ strokeDasharray: "264 352" }}
-                                                viewport={{ once: true }}
-                                                transition={{ duration: 2, delay: index * 0.1 }}
-                                            />
-                                            <defs>
-                                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                    <stop offset="0%" stopColor="#007F8E" />
-                                                    <stop offset="100%" stopColor="#33C1CF" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="text-3xl md:text-4xl font-bold text-white">
-                                                <AnimatedNumber value={stat.number} suffix={stat.suffix} />
-                                            </div>
+                                    Richiedi Preventivo
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                                <button
+                                    onClick={() => setCurrentPage('servizi')}
+                                    className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-lg font-bold text-lg transition-all backdrop-blur-sm flex items-center justify-center"
+                                >
+                                    I Nostri Servizi
+                                </button>
+                            </div>
+
+                            {/* Trust Bar / Stats */}
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 border-t border-white/10 pt-8">
+                                {stats.map((stat, index) => (
+                                    <div key={index}>
+                                        <div className="text-3xl font-bold text-white mb-1">
+                                            <AnimatedNumber value={stat.number} suffix={stat.suffix} />
+                                        </div>
+                                        <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
+                                            {stat.label}
                                         </div>
                                     </div>
-                                    <div className="text-sm md:text-base text-slate-200 font-medium">{stat.label}</div>
-                                </GlassmorphicCard>
-                            </motion.div>
-                        ))}
+                                ))}
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
+
+                {/* Scroll Indicator */}
+                <motion.div
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50"
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                >
+                    <ChevronDown className="w-8 h-8" />
+                </motion.div>
             </section>
 
-            {/* Services Section with Modern Cards */}
-            <section className="py-24 bg-slate-50 dark:bg-slate-950">
+            {/* Services Section - Clean & Professional */}
+            <section className="py-24 bg-slate-50 dark:bg-slate-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">I nostri servizi</h2>
                         <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                            Soluzioni complete per ogni esigenza industriale
+                            Soluzioni complete per ogni esigenza industriale, dalla progettazione alla manutenzione.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {services.map((service, i) => (
                             <motion.div
                                 key={i}
@@ -225,54 +165,31 @@ export default function HomePage({ setCurrentPage }) {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="group relative bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-200 dark:border-slate-800 overflow-hidden"
-                                whileHover={{ y: -8 }}
+                                className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 flex flex-col"
                             >
-                                {/* Background gradient on hover */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-brand-500/0 via-brand-500/0 to-brand-500/0 group-hover:from-brand-500/5 group-hover:via-brand-500/10 group-hover:to-brand-500/5 transition-all duration-500 pointer-events-none" />
-
-                                {/* Content */}
-                                <div className="relative z-10">
-                                    {/* Icon */}
-                                    <motion.div
-                                        className="w-16 h-16 bg-brand-50 dark:bg-brand-900/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-100 dark:group-hover:bg-brand-900/40 transition-colors"
-                                        whileHover={{ scale: 1.1, rotate: 5 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        <div className="text-brand-600 dark:text-brand-400">
-                                            {service.icon}
-                                        </div>
-                                    </motion.div>
-
-                                    {/* Title */}
+                                <div className="h-48 overflow-hidden relative">
+                                    <img
+                                        src={service.image}
+                                        alt={service.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+                                    <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-slate-900/90 p-2 rounded-lg backdrop-blur-sm shadow-sm">
+                                        {service.icon}
+                                    </div>
+                                </div>
+                                <div className="p-6 flex-1 flex flex-col">
                                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                                         {service.title}
                                     </h3>
-
-                                    {/* Description */}
-                                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 flex-1">
                                         {service.description}
                                     </p>
-
-                                    {/* Image - smaller and at bottom */}
-                                    <div className="relative h-32 rounded-lg overflow-hidden mt-auto">
-                                        <img
-                                            src={service.header.props.children.props.src}
-                                            alt={service.header.props.children.props.alt}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-700">
+                                        <span className="text-brand-600 dark:text-brand-400 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                                            Scopri di più <ArrowRight className="w-4 h-4" />
+                                        </span>
                                     </div>
-
-                                    {/* Learn more link */}
-                                    <motion.div
-                                        className="mt-4 flex items-center gap-2 text-brand-600 dark:text-brand-400 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity"
-                                        initial={{ x: -10 }}
-                                        whileHover={{ x: 0 }}
-                                    >
-                                        <span>Scopri di più</span>
-                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </motion.div>
                                 </div>
                             </motion.div>
                         ))}
@@ -280,88 +197,83 @@ export default function HomePage({ setCurrentPage }) {
                 </div>
             </section>
 
-            {/* Testimonials Section with Infinite Moving Cards */}
-            <section className="py-24 bg-bg-dark relative overflow-hidden flex flex-col items-center justify-center antialiased">
-                <div className="text-center mb-12 relative z-10">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Dicono di noi</h2>
-                    <p className="text-xl text-slate-200">Le opinioni dei nostri clienti</p>
-                </div>
-                <InfiniteMovingCards
-                    items={testimonials}
-                    direction="right"
-                    speed="slow"
-                />
-            </section>
-
             {/* Why Choose Us Section */}
             <section className="py-24 bg-white dark:bg-slate-950 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">Perché scegliere GS Elettrotecnica</h2>
+                        <div>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 text-sm font-medium mb-6">
+                                <Shield className="w-4 h-4" />
+                                <span>Affidabilità Garantita</span>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+                                Perché scegliere GS Elettrotecnica
+                            </h2>
                             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
                                 La nostra esperienza trentennale e la costante innovazione ci rendono il partner ideale per ogni progetto di automazione industriale.
                             </p>
                             <div className="space-y-4">
                                 {whyChooseUs.map((item, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className="flex items-start gap-4"
-                                    >
-                                        <div className="flex-shrink-0 mt-1">
-                                            <CheckCircle className="w-6 h-6 text-brand" />
-                                        </div>
+                                    <div key={index} className="flex items-start gap-3">
+                                        <CheckCircle className="w-6 h-6 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" />
                                         <span className="text-slate-700 dark:text-slate-300 font-medium">{item}</span>
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="relative"
-                        >
-                            <div className="aspect-[4/3] bg-gradient-to-br from-blue-900 to-slate-900 rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden group">
-                                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay transition-transform duration-700 group-hover:scale-110" />
-                                <Factory className="w-32 h-32 text-white/20 relative z-10" />
+                        </div>
+                        <div className="relative">
+                            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
+                                <img
+                                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80"
+                                    alt="Engineers working"
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-brand-900/10 mix-blend-multiply" />
                             </div>
-                            <motion.div
-                                initial={{ y: 20, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.4 }}
-                                className="absolute -bottom-8 -left-8 bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700"
-                            >
-                                <div className="text-4xl font-bold text-accent mb-1">30+</div>
-                                <div className="text-sm font-medium text-slate-600 dark:text-slate-300">anni di successi</div>
-                            </motion.div>
-                        </motion.div>
+                            {/* Floating Card */}
+                            <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 max-w-xs">
+                                <div className="flex items-center gap-4 mb-2">
+                                    <div className="p-3 bg-brand-100 dark:bg-brand-900/30 rounded-lg text-brand-600 dark:text-brand-400">
+                                        <Users className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <div className="text-2xl font-bold text-slate-900 dark:text-white">100%</div>
+                                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase">Clienti Soddisfatti</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
+            {/* Testimonials Section */}
+            <section className="py-24 bg-slate-900 relative overflow-hidden flex flex-col items-center justify-center antialiased">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,127,142,0.1),transparent_70%)]" />
+                <div className="text-center mb-12 relative z-10 px-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Dicono di noi</h2>
+                    <p className="text-xl text-slate-300">Le opinioni dei nostri clienti</p>
+                </div>
+                <div className="w-full relative z-10">
+                    <InfiniteMovingCards
+                        items={testimonials}
+                        direction="right"
+                        speed="slow"
+                    />
+                </div>
+            </section>
+
             {/* CTA Section */}
-            <section className="py-24 bg-slate-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-accent/5" />
+            <section className="py-24 bg-brand-700 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/industrial-factory.png')] bg-cover bg-center opacity-10 mix-blend-overlay" />
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Hai un progetto in mente?</h2>
-                    <p className="text-xl text-slate-200 mb-10 max-w-2xl mx-auto">
-                        Contattaci per una consulenza gratuita e scopri come possiamo aiutarti a realizzare i tuoi obiettivi
+                    <p className="text-xl text-brand-100 mb-10 max-w-2xl mx-auto">
+                        Contattaci per una consulenza gratuita e scopri come possiamo aiutarti a realizzare i tuoi obiettivi.
                     </p>
                     <button
                         onClick={() => setCurrentPage('contatti')}
-                        className="bg-accent text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-accent-600 transition-all transform hover:scale-105 inline-flex items-center shadow-lg shadow-accent/25"
+                        className="bg-white text-brand-700 px-10 py-4 rounded-xl font-bold text-lg hover:bg-brand-50 transition-all transform hover:scale-105 inline-flex items-center shadow-xl"
                     >
                         Contattaci ora
                         <ArrowRight className="ml-2 w-6 h-6" />
