@@ -97,8 +97,8 @@ export default function Footer() {
                         © {new Date().getFullYear()} GS Elettrotecnica Automazioni Industriali Srl. Tutti i diritti riservati.
                     </div>
                     <div className="flex gap-6">
-                        <button className="hover:text-brand transition-colors">Privacy Policy</button>
-                        <button className="hover:text-brand transition-colors">Cookie Policy</button>
+                        <Link to="/privacy-policy" className="hover:text-brand transition-colors">Privacy Policy</Link>
+                        <Link to="/cookie-policy" className="hover:text-brand transition-colors">Cookie Policy</Link>
                     </div>
                 </div>
             </div>

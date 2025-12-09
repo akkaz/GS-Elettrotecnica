@@ -23,6 +23,8 @@ const QuadriElettriciPage = lazy(() => import('./pages/services/QuadriElettriciP
 const EnergieRinnovabiliPage = lazy(() => import('./pages/services/EnergieRinnovabiliPage'));
 const RevampingPage = lazy(() => import('./pages/services/RevampingPage'));
 const ServiziAggiuntiviPage = lazy(() => import('./pages/services/ServiziAggiuntiviPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage'));
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -44,7 +46,11 @@ function AnimatedRoutes() {
           <Route path="/servizi/energie-rinnovabili" element={<EnergieRinnovabiliPage />} />
           <Route path="/servizi/revamping" element={<RevampingPage />} />
           <Route path="/servizi/servizi-aggiuntivi" element={<ServiziAggiuntiviPage />} />
-          
+
+          {/* Legal Routes */}
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+
           {/* 404 Page */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
